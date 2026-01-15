@@ -17,7 +17,8 @@ body {
    COVER
 ===================== */
 .cover {
-  min-height: 100vh; /* FIX TYPO: vh BUKAN hv */
+  min-height: 100vh;
+  height: 100vh;
   background: radial-gradient(circle at top, #1c1c2b, #0f0f14);
   display: flex;
   flex-direction: column;
@@ -303,6 +304,11 @@ body {
   cursor: pointer;
   z-index: 999;
   box-shadow: 0 6px 16px rgba(0,0,0,.4);
+}
+
+body.lock-scroll {
+  height: 100vh;
+  overflow: hidden;
 }
 
 .footer {
