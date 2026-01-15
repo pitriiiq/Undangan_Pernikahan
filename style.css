@@ -304,3 +304,12 @@ body {
   z-index: 999;
   box-shadow: 0 6px 16px rgba(0,0,0,.4);
 }
+
+@media (max-width: 480px) {
+
+  .cover {
+    min-height: auto;       
+    padding-top: 28px;
+    padding-bottom: 28px;
+  }
+}
