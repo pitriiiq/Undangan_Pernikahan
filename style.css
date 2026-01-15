@@ -149,6 +149,31 @@ body {
   opacity: 0.7;
 }
 
+.wish-list {
+  max-width: 500px;
+  margin: 40px auto 0;
+}
+
+.wish-card {
+  background: rgba(255,255,255,0.06);
+  padding: 16px 18px;
+  border-radius: 16px;
+  margin-bottom: 14px;
+  text-align: left;
+}
+
+.wish-card strong {
+  color: #e6c78b;
+  display: block;
+  margin-bottom: 6px;
+}
+
+.wish-card p {
+  font-size: 0.9rem;
+  opacity: 0.9;
+}
+
+
 .fade-up {
   opacity: 0;
   transform: translateY(40px);
