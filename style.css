@@ -209,6 +209,26 @@ body {
   transform: none;
 }
 
+/* MUSIC BUTTON */
+.music-btn {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  background: rgba(176,141,87,0.85);
+  color: #111;
+  font-size: 20px;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 999;
+  box-shadow: 0 6px 16px rgba(0,0,0,0.4);
+}
+
 /* MOBILE */
 @media (max-width: 480px) {
   .cover h1 { font-size: 2rem; }
