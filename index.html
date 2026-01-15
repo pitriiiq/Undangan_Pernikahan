@@ -28,7 +28,7 @@
     <div><span id="seconds">0</span><small>Detik</small></div>
   </div>
 
-  <a href="#content" class="btn" onclick="playMusic()">Buka Undangan</a>
+  <a href="#content" class="btn" id="openInvitation">Buka Undangan</a>
 </section>
 
 <div id="content">
@@ -131,43 +131,42 @@
 </section>
 
 </div>
-  
+
 <!-- AUDIO -->
-<audio id="bgMusic" loop>
+<audio id="bgMusic" preload="auto" loop>
   <source src="music.mp3" type="audio/mpeg">
 </audio>
 
-<!-- MUSIC BUTTON -->
 <button id="musicBtn" class="music-btn">🔊</button>
 
 <!-- SCRIPT UMUM -->
 <script>
   const music = document.getElementById("bgMusic");
   const musicBtn = document.getElementById("musicBtn");
+  const openBtn = document.getElementById("openInvitation");
 
-  function playMusic() {
-    music.play();
+  openBtn.addEventListener("click", () => {
+    music.volume = 0.6;
+    music.play().catch(() => {});
     musicBtn.style.display = "flex";
-  }
+  });
 
   musicBtn.addEventListener("click", () => {
     if (music.paused) {
       music.play();
-      musicBtn.innerText = "🔊";
+      musicBtn.textContent = "🔊";
     } else {
       music.pause();
-      musicBtn.innerText = "🔇";
+      musicBtn.textContent = "🔇";
     }
   });
 
   const params = new URLSearchParams(window.location.search);
   const guest = params.get("to");
-
   if (guest) {
-    const cleanName = decodeURIComponent(guest.replace(/\+/g, " "));
-    document.getElementById("guestName").innerText = cleanName;
-    const wishInput = document.getElementById("wishName");
-    if (wishInput) wishInput.value = cleanName;
+    const name = decodeURIComponent(guest.replace(/\+/g, " "));
+    document.getElementById("guestName").textContent = name;
+    document.getElementById("wishName").value = name;
   }
 
   const weddingDate = new Date("March 30, 2026 08:00:00").getTime();
@@ -175,15 +174,15 @@
     const now = Date.now();
     const d = weddingDate - now;
     if (d < 0) return;
-    days.innerText = Math.floor(d / 86400000);
-    hours.innerText = Math.floor((d % 86400000) / 3600000);
-    minutes.innerText = Math.floor((d % 3600000) / 60000);
-    seconds.innerText = Math.floor((d % 60000) / 1000);
+    days.textContent = Math.floor(d / 86400000);
+    hours.textContent = Math.floor((d % 86400000) / 3600000);
+    minutes.textContent = Math.floor((d % 3600000) / 60000);
+    seconds.textContent = Math.floor((d % 60000) / 1000);
   }, 1000);
 
-  const observer = new IntersectionObserver(entries =>
-    entries.forEach(e => e.isIntersecting && e.target.classList.add("show"))
-  );
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => e.isIntersecting && e.target.classList.add("show"));
+  });
   document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
 </script>
 
@@ -230,6 +229,6 @@
     });
   });
 </script>
-  
+
 </body>
 </html>
