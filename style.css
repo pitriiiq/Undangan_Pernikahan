@@ -177,9 +177,16 @@ body {
   margin: 0 auto;
 }
 
+/* SAMAIN SEMUA ELEMEN FORM */
+.wish-form input,
+.wish-form textarea,
+.wish-form button {
+  width: 100%;
+}
+
+/* INPUT & TEXTAREA */
 .wish-form input,
 .wish-form textarea {
-  width: 100%;
   background: rgba(255, 255, 255, 0.08);
   border: none;
   border-radius: 14px;
@@ -189,14 +196,23 @@ body {
   font-family: inherit;
 }
 
+/* PLACEHOLDER */
 .wish-form input::placeholder,
 .wish-form textarea::placeholder {
   color: rgba(255, 255, 255, 0.6);
 }
 
+/* TEXTAREA KHUSUS */
 .wish-form textarea {
   min-height: 120px;
   resize: none;
+}
+
+/* BUTTON */
+.wish-form button {
+  border-radius: 30px;
+  padding: 14px;
+  margin-top: 6px;
 }
 
 /* WISH LIST */
