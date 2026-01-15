@@ -191,11 +191,17 @@
   const musicBtn = document.getElementById("musicBtn");
   const openBtn = document.getElementById("openInvitation");
 
-  openBtn.addEventListener("click", () => {
-    music.volume = 0.6;
-    music.play().catch(() => {});
-    musicBtn.style.display = "flex";
+  openBtn.addEventListener("click", (e) => {
+  e.preventDefault();
+  document.body.classList.remove("lock-scroll");
+  document.getElementById("content").scrollIntoView({
+    behavior: "smooth"
   });
+  music.volume = 0.6;
+  music.play().catch(() => {});
+  musicBtn.style.display = "flex";
+});
+
 
   musicBtn.addEventListener("click", () => {
     if (music.paused) {
