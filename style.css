@@ -17,7 +17,7 @@ body {
    COVER
 ===================== */
 .cover {
-  min-height: 100hv;
+  min-height: 100vh; /* FIX TYPO: vh BUKAN hv */
   background: radial-gradient(circle at top, #1c1c2b, #0f0f14);
   display: flex;
   flex-direction: column;
@@ -110,7 +110,7 @@ body {
 }
 
 /* =====================
-   DECOR (LEBIH KERASA DI MOBILE)
+   DECOR
 ===================== */
 .decor-top,
 .decor-bottom {
@@ -305,10 +305,23 @@ body {
   box-shadow: 0 6px 16px rgba(0,0,0,.4);
 }
 
-@media (max-width: 480px) {
+/* =====================
+   FOOTER (LEBIH GELAP & KECIL)
+===================== */
+.footer {
+  padding: 18px 12px 24px;
+  font-size: 0.7rem;
+  color: rgba(255,255,255,0.45);
+  background: #0c0c11;
+  text-align: center;
+}
 
+/* =====================
+   MOBILE FIX COVER
+===================== */
+@media (max-width: 480px) {
   .cover {
-    min-height: auto;       
+    min-height: auto;
     padding-top: 28px;
     padding-bottom: 28px;
   }
