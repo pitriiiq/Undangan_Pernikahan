@@ -28,7 +28,7 @@
     <div><span id="seconds">0</span><small>Detik</small></div>
   </div>
 
-  <a href="#content" class="btn">Buka Undangan</a>
+  <a href="#content" class="btn" onclick="playMusic()">Buka Undangan</a>
 </section>
 
 <div id="content">
@@ -131,9 +131,35 @@
 </section>
 
 </div>
+  
+<!-- AUDIO -->
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<!-- MUSIC BUTTON -->
+<button id="musicBtn" class="music-btn">🔊</button>
 
 <!-- SCRIPT UMUM -->
 <script>
+  const music = document.getElementById("bgMusic");
+  const musicBtn = document.getElementById("musicBtn");
+
+  function playMusic() {
+    music.play();
+    musicBtn.style.display = "flex";
+  }
+
+  musicBtn.addEventListener("click", () => {
+    if (music.paused) {
+      music.play();
+      musicBtn.innerText = "🔊";
+    } else {
+      music.pause();
+      musicBtn.innerText = "🔇";
+    }
+  });
+
   const params = new URLSearchParams(window.location.search);
   const guest = params.get("to");
 
@@ -204,6 +230,6 @@
     });
   });
 </script>
-
+  
 </body>
 </html>
