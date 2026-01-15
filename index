@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <title>Ahmad & Wardatul Wedding</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@500;600&family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Cover -->
+  <section class="cover">
+    <p class="small">Undangan Pernikahan</p>
+
+    <!-- Nama Tamu -->
+    <p class="guest">Kepada Yth.<br><span id="guestName">Tamu Undangan</span></p>
+
+    <h1>Ahmad Rosidi<br>&amp;<br>Wardatul Hasanah</h1>
+    <p class="date">Senin, 30 Maret 2026</p>
+
+    <!-- Countdown -->
+    <div class="countdown">
+      <div><span id="days">0</span><small>Hari</small></div>
+      <div><span id="hours">0</span><small>Jam</small></div>
+      <div><span id="minutes">0</span><small>Menit</small></div>
+      <div><span id="seconds">0</span><small>Detik</small></div>
+    </div>
+
+    <a href="#content" class="btn">Buka Undangan</a>
+  </section>
+
+  <div id="content">
+    <!-- Ayat -->
+    <section class="section">
+      <p class="quote">
+        “Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri agar kamu merasa tenteram.”
+        <br><span>(QS. Ar-Rum: 21)</span>
+      </p>
+    </section>
+
+    <!-- Mempelai -->
+    <section class="section">
+      <h2>Mempelai</h2>
+
+      <div class="card">
+        <h3>Ahmad Rosidi</h3>
+        <p>Putra dari<br>Ibu Asmara<br>&amp; Bapak Mursyid</p>
+      </div>
+
+      <div class="divider">♥</div>
+
+      <div class="card">
+        <h3>Wardatul Hasanah</h3>
+        <p>Putri dari<br>Ibu Mutia<br>&amp; Bapak Alm. Abdurrahman</p>
+      </div>
+    </section>
+
+    <!-- Acara -->
+    <section class="section">
+      <h2>Akad & Resepsi</h2>
+      <p>Senin, 30 Maret 2026</p>
+      <a class="btn-outline" href="https://goo.gl/maps/iAqbqMrJ1ZebaMQJ8?g_st=aw" target="_blank">
+        Lihat Lokasi
+      </a>
+    </section>
+
+    <!-- Penutup -->
+    <section class="section">
+      <p class="penutup">
+        Merupakan suatu kehormatan dan kebahagiaan bagi kami apabila
+        Bapak/Ibu/Saudara/i berkenan hadir dan memberikan doa restu.
+      </p>
+      <p class="thanks">Terima kasih 🤍</p>
+    </section>
+  </div>
+
+  <!-- SCRIPT -->
+  <script>
+    // ===== Nama Tamu dari URL =====
+    const params = new URLSearchParams(window.location.search);
+    const guest = params.get("to");
+    if (guest) {
+      document.getElementById("guestName").innerText = decodeURIComponent(guest.replace(/\+/g, " "));
+    }
+
+    // ===== Countdown =====
+    const weddingDate = new Date("March 30, 2026 08:00:00").getTime();
+
+    setInterval(() => {
+      const now = new Date().getTime();
+      const distance = weddingDate - now;
+
+      if (distance < 0) return;
+
+      document.getElementById("days").innerText = Math.floor(distance / (1000 * 60 * 60 * 24));
+      document.getElementById("hours").innerText = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+      document.getElementById("minutes").innerText = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+      document.getElementById("seconds").innerText = Math.floor((distance % (1000 * 60)) / 1000);
+    }, 1000);
+  </script>
+
+</body>
+</html>
