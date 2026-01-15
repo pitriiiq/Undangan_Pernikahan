@@ -19,7 +19,7 @@
   </p>
 
   <h1>Ahmad Rosidi<br>&amp;<br>Wardatul Hasanah</h1>
-  <p class="date">Senin, 30 Maret 2026</p>
+  <p class="date">Maret 2026</p>
 
   <div class="countdown">
     <div><span id="days">0</span><small>Hari</small></div>
@@ -35,6 +35,9 @@
 
 <!-- AYAT -->
 <section class="section fade-up">
+  <div class="decor-top"></div>
+  <div class="decor-bottom"></div>
+
   <p class="quote">
     “Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri agar kamu merasa tenteram.”
     <br><span>(QS. Ar-Rum: 21)</span>
@@ -43,6 +46,9 @@
 
 <!-- MEMPELAI -->
 <section class="section fade-up">
+  <div class="decor-top"></div>
+  <div class="decor-bottom"></div>
+
   <h2>Mempelai</h2>
 
   <div class="card">
@@ -58,24 +64,21 @@
   </div>
 </section>
 
-<!-- ACARA -->
+<!-- DETAIL ACARA -->
 <section class="section fade-up">
+  <div class="decor-top"></div>
+  <div class="decor-bottom"></div>
+
   <h2>Detail Acara</h2>
 
   <div class="card">
     <h3>Akad Nikah</h3>
-    <p>
-      Minggu<br>
-      <strong>29 Maret 2026</strong>
-    </p>
+    <p>Minggu<br><strong>29 Maret 2026</strong></p>
   </div>
 
   <div class="card">
     <h3>Resepsi</h3>
-    <p>
-      Senin<br>
-      <strong>30 Maret 2026</strong>
-    </p>
+    <p>Senin<br><strong>30 Maret 2026</strong></p>
   </div>
 
   <a class="btn-outline" href="https://goo.gl/maps/iAqbqMrJ1ZebaMQJ8?g_st=aw" target="_blank">
@@ -83,9 +86,11 @@
   </a>
 </section>
 
-
 <!-- RSVP -->
 <section class="section fade-up">
+  <div class="decor-top"></div>
+  <div class="decor-bottom"></div>
+
   <h2>Konfirmasi Kehadiran</h2>
   <p>Mohon konfirmasi kehadiran Anda</p>
 
@@ -102,10 +107,13 @@
 
 <!-- UCAPAN -->
 <section class="section fade-up">
+  <div class="decor-top"></div>
+  <div class="decor-bottom"></div>
+
   <h2>Ucapan & Doa</h2>
 
   <form class="wish-form">
-    <input type="text" name="nama" placeholder="Nama Anda" required>
+    <input type="text" name="nama" id="wishName" placeholder="Nama Anda" required>
     <textarea name="ucapan" placeholder="Tulis ucapan dan doa..." required></textarea>
     <button type="submit" class="btn">Kirim Ucapan</button>
   </form>
@@ -124,29 +132,31 @@
 
 </div>
 
-<!-- SCRIPT BIASA -->
+<!-- SCRIPT UMUM -->
 <script>
   const params = new URLSearchParams(window.location.search);
   const guest = params.get("to");
+
   if (guest) {
-    document.getElementById("guestName").innerText =
-      decodeURIComponent(guest.replace(/\+/g, " "));
+    const cleanName = decodeURIComponent(guest.replace(/\+/g, " "));
+    document.getElementById("guestName").innerText = cleanName;
+    const wishInput = document.getElementById("wishName");
+    if (wishInput) wishInput.value = cleanName;
   }
 
   const weddingDate = new Date("March 30, 2026 08:00:00").getTime();
   setInterval(() => {
-    const now = new Date().getTime();
+    const now = Date.now();
     const d = weddingDate - now;
     if (d < 0) return;
-
     days.innerText = Math.floor(d / 86400000);
     hours.innerText = Math.floor((d % 86400000) / 3600000);
     minutes.innerText = Math.floor((d % 3600000) / 60000);
     seconds.innerText = Math.floor((d % 60000) / 1000);
   }, 1000);
 
-  const observer = new IntersectionObserver(e =>
-    e.forEach(x => x.isIntersecting && x.target.classList.add("show"))
+  const observer = new IntersectionObserver(entries =>
+    entries.forEach(e => e.isIntersecting && e.target.classList.add("show"))
   );
   document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
 </script>
@@ -157,12 +167,12 @@
   import { getFirestore, collection, addDoc, onSnapshot, query, orderBy } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
   const firebaseConfig = {
-    apiKey: "AIzaSyCzTI7XY1P5wga1LpZJZrnRbIrmghUBuAQ",
-    authDomain: "undangan-afdb2.firebaseapp.com",
-    projectId: "undangan-afdb2",
-    storageBucket: "undangan-afdb2.appspot.com",
-    messagingSenderId: "116844618079",
-    appId: "1:116844618079:web:d583cf909016356f4f96ea"
+    apiKey: "ISI_API_KEY_KAMU",
+    authDomain: "xxxx.firebaseapp.com",
+    projectId: "xxxx",
+    storageBucket: "xxxx.appspot.com",
+    messagingSenderId: "xxxx",
+    appId: "xxxx"
   };
 
   const app = initializeApp(firebaseConfig);
