@@ -37,7 +37,6 @@
 <section class="section fade-up">
   <div class="decor-top"></div>
   <div class="decor-bottom"></div>
-
   <p class="quote">
     “Dan di antara tanda-tanda kekuasaan-Nya ialah Dia menciptakan pasangan-pasangan untukmu dari jenismu sendiri agar kamu merasa tenteram.”
     <br><span>(QS. Ar-Rum: 21)</span>
@@ -48,7 +47,6 @@
 <section class="section fade-up">
   <div class="decor-top"></div>
   <div class="decor-bottom"></div>
-
   <h2>Mempelai</h2>
 
   <div class="card">
@@ -64,11 +62,10 @@
   </div>
 </section>
 
-<!-- DETAIL ACARA -->
+<!-- DETAIL ACARA (TANGGAL) -->
 <section class="section fade-up">
   <div class="decor-top"></div>
   <div class="decor-bottom"></div>
-
   <h2>Detail Acara</h2>
 
   <div class="card">
@@ -86,11 +83,33 @@
   </a>
 </section>
 
+<!-- SUSUNAN / JAM ACARA -->
+<section class="section fade-up">
+  <div class="decor-top"></div>
+  <div class="decor-bottom"></div>
+  <h2>Susunan Acara</h2>
+
+  <div class="card">
+    <h3>Akad Nikah</h3>
+    <p>
+      Minggu, 29 Maret 2026<br>
+      <strong>08.00 – 10.00 WIB</strong>
+    </p>
+  </div>
+
+  <div class="card">
+    <h3>Resepsi</h3>
+    <p>
+      Senin, 30 Maret 2026<br>
+      <strong>11.00 – Selesai</strong>
+    </p>
+  </div>
+</section>
+
 <!-- RSVP -->
 <section class="section fade-up">
   <div class="decor-top"></div>
   <div class="decor-bottom"></div>
-
   <h2>Konfirmasi Kehadiran</h2>
   <p>Mohon konfirmasi kehadiran Anda</p>
 
@@ -98,18 +117,43 @@
     Hadir
   </a>
 
-  <br><br>
-
   <a class="btn-outline" href="https://wa.me/6281917280886?text=Maaf,%20saya%20belum%20bisa%20hadir%20di%20acara%20pernikahan%20Rosi%20%26%20Warda" target="_blank">
     Tidak Hadir
   </a>
+</section>
+
+<!-- HIBURAN -->
+<section class="section fade-up">
+  <div class="decor-top"></div>
+  <div class="decor-bottom"></div>
+  <h2>Hiburan</h2>
+
+  <div class="card">
+    <h3>🎶 Full Music</h3>
+    <p>Menemani suasana bahagia sepanjang acara resepsi</p>
+  </div>
+</section>
+
+<!-- TERIMA TAMU -->
+<section class="section fade-up">
+  <div class="decor-top"></div>
+  <div class="decor-bottom"></div>
+  <h2>Terima Tamu</h2>
+
+  <div class="card">
+    <p>
+      Kami yang berbahagia,<br><br>
+      <strong>Ahmad Rosidi</strong><br>
+      &amp;<br>
+      <strong>Wardatul Hasanah</strong>
+    </p>
+  </div>
 </section>
 
 <!-- UCAPAN -->
 <section class="section fade-up">
   <div class="decor-top"></div>
   <div class="decor-bottom"></div>
-
   <h2>Ucapan & Doa</h2>
 
   <form class="wish-form">
@@ -131,6 +175,11 @@
 </section>
 
 </div>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <p>© Fitriyah 2026</p>
+</footer>
 
 <!-- AUDIO -->
 <audio id="bgMusic" preload="auto" loop>
@@ -180,13 +229,13 @@
     seconds.textContent = Math.floor((d % 60000) / 1000);
   }, 1000);
 
-  const observer = new IntersectionObserver(entries => {
-    entries.forEach(e => e.isIntersecting && e.target.classList.add("show"));
-  });
+  const observer = new IntersectionObserver(entries =>
+    entries.forEach(e => e.isIntersecting && e.target.classList.add("show"))
+  );
   document.querySelectorAll(".fade-up").forEach(el => observer.observe(el));
 </script>
 
-<!-- FIREBASE -->
+<!-- FIREBASE (TETAP SEPERTI PUNYAMU) -->
 <script type="module">
   import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
   import { getFirestore, collection, addDoc, onSnapshot, query, orderBy } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
